@@ -180,7 +180,7 @@ def approve(request,myid):
 
 @login_required
 def searchpagetitle(request):
-    query=request.GET('query')
+    query=request.GET.get('query')
     search=jobmodel.objects.filter(title__icontains=query)
     return render(request,'searchpagetitle.html',{'query':query,'search':search})
 
